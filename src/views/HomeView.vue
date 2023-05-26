@@ -1,15 +1,21 @@
 <template>
-  <hello-world />
+  <v-container>
+    <div>
+      <nav>
+        <navigation-menu-page/>
+      </nav>
+    </div>
+  </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import NavigationMenuPage from '@/views/navigation/NavigationMenuPage.vue'
 
   export default {
     name: 'Home',
 
     components: {
-      HelloWorld,
+      NavigationMenuPage
     },
   }
 </script>
