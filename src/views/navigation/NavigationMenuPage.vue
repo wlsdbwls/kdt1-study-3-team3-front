@@ -23,7 +23,7 @@ import router from '@/router'
 export default {
     data () {
         return {
-            accountId: 0,
+            userToken: 0,
             isLogin: false,
         }
     },
@@ -41,8 +41,8 @@ export default {
         },
     },
     mounted () {
-        this.accountId = localStorage.getItem("userToken")
-        if (this.accountId > 0) {
+        this.userToken = localStorage.getItem("userToken")
+        if (this.userToken != null) {
         this.isLogin = true
     }
   } 
