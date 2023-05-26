@@ -67,7 +67,7 @@ export default {
             productModule, ['requestProductRegisterToSpring']
         ),
 
-        onSubmit() {
+        async onSubmit() {
             let formData = new FormData()
             let aboutProduct = {
                 productName: this.productName,
@@ -77,7 +77,7 @@ export default {
             }
 
             for (let idx = 0; idx < this.files.length; idx++) {
-                formData.append('imageFileList', this.files[idx])
+                formData.append('productImg', this.files[idx])
             }
 
             formData.append(
@@ -86,7 +86,7 @@ export default {
             )
 
             this.$emit("submit", formData)
-            this.$router.push({ name: 'ProductListPage' })
+            await this.$router.push({ name: 'ProductListPage' })
 
         },
         handleFileUpload() {
