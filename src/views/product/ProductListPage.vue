@@ -21,10 +21,10 @@ export default {
   methods:{
     ...mapActions(productModule,['requestProductListToSpring']),
     productRead(item){
-          this.$router.push({name: '/productReadPage', params: {id:item.productId}})
+          this.$router.push({name: 'ProductReadPage', params: {id:item.productId}})
         },
     handleCellClick(item) { 
-          this.$router.push({name: '/productReadPage', params: {id:item.productId}})
+          this.$router.push({name: 'ProductReadPage', params: {id:item.productId}})
         },
     accountCheck(){
             const {userToken}= this
@@ -33,7 +33,7 @@ export default {
             .then((res)=>{
                 // 받아온 데이터가 참이라면 상품 등록 페이지로 연결됨
                 if(res.data===true){
-                    this.$router.push({ name: '/ProductRegisterPage' })
+                    this.$router.push({ name: 'ProductRegisterPage' })
                 }
             })
             .catch((res)=>{

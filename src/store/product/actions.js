@@ -25,8 +25,10 @@ export default {
     });
   },
   requestProductRegisterToSpring({}, payload) {
-    return axiosInst.post("/product/register", payload).then((res) => {
-      if (res.data) {
+    return axiosInst.post("/product/register", payload)
+      .then((res) => {
+        if (res.data) {
+          return res.data
       } else {
         alert("사업자 회원으로 로그인하세요");
       }
