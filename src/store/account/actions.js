@@ -4,21 +4,23 @@ export default {
     requestNormalRegisterAccountToSpring ({ }, payload) {
 
         return axiosInst.post('/account/normal-register', payload)
-                .then((res) => {
+            .then((resNormalRegister) => {
+                if(resNormalRegister.data == true) {
                     alert('일반(구매자) 회원 가입 성공')
-                })
-                .catch(() => {
-                    alert('중복된 이메일이 있습니다.')
-                })
+                } else {
+                    alert('구매자 회원가입 실패!')
+                }
+            })
     },
     requestBusinessRegisterAccountToSpring ({ }, payload) {
 
         return axiosInst.post('/account/business-register', payload)
-                .then((res) => {
-                    alert('사업자(판매자) 회원 가입 성공')
-                })
-                .catch(() => {
-                    alert('중복된 이메일이 있습니다.')
+                .then((resBusinessRegister) => {
+                    if(resBusinessRegister.data == true) {
+                        alert('사업자(판매자) 회원 가입 성공')
+                    } else {
+                        alert('판매자 회원가입 실패!')
+                    }
                 })
     },
     requestLoginAccountToSpring ({ }, payload) {
