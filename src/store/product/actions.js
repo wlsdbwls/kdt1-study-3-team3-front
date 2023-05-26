@@ -1,10 +1,11 @@
 import REQUEST_PRODUCT_TO_SPRING from "./mutation-types";
+import axiosInst from "@/utility/axiosInst";
 
 export default {
   requestProductToSpring({ commit }, id) {
     // state.product = id;
     return (
-      axios
+      axiosInst
         .get(`/product/${id}`)
         // .get(
         //   "https://94af1314-3b6d-4a44-9315-23a51cecb052.mock.pstmn.io/product"
