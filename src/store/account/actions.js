@@ -21,4 +21,16 @@ export default {
                     alert('중복된 이메일이 있습니다.')
                 })
     },
+    requestLoginAccountToSpring ({ }, payload) {
+
+        return axiosInst.post('/account/login', payload)
+                .then((resLogin) => {
+                    if(resLogin.data != '') {
+                        alert('로그인 성공!')
+                        localStorage.setItem("userToken", resLogin.data)
+                    } else {
+                        alert('이메일과 비밀번호를 다시 확인해주세요!')
+                    }
+                })
+    },
 }
