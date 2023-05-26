@@ -13,6 +13,7 @@ const productRoutes = [
     path: "/productReadPage",
     name: "productReadPage",
     component: ProductReadPage,
+    props: true,
   },
   {
     path: "/productListPage",
