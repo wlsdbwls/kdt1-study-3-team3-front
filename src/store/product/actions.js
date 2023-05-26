@@ -27,5 +27,14 @@ export default {
             //REQUEST_BOARD_LIST_TO_SPRING는 받아온 데이터를 state의 boards에 넣어줌
             commit(REQUEST_PRODUCT_LIST_TO_SPRING, res.data)
         })
-},
+  },
+  requestProductRegisterToSpring({ }, payload) {
+    return axiosInst.post('/product/register', payload)
+      .then((res) => {
+        if (res.data) {
+        } else {
+          alert('사업자 회원으로 로그인하세요')
+        }
+      })
+  }
 };

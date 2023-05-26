@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import ProductReadPage from "@/views/product/ProductReadPage.vue"
 import ProductListPage from "@/views/product/ProductListPage.vue"
+import ProductRegisterPage from "@/views/product/ProductRegisterPage.vue"
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const productRoutes = [
     path: "/productListPage",
     name: "ProductListPage",
     component: ProductListPage,
+  },
+  {
+    path: "/productRegisterPage",
+    name: "ProductRegisterPage",
+    component: ProductRegisterPage,
   },
 ]
 
