@@ -25,7 +25,7 @@ export default {
             .then((res)=>{
                 // 받아온 데이터가 참이라면 상품 등록 페이지로 연결됨
                 if(res.data===true){
-                    this.$router.push({ name: '/ProductRegisterPage' })
+                    this.$router.push({ name: 'ProductRegisterPage' })
                 }
             })
             .catch((res)=>{
@@ -38,7 +38,7 @@ export default {
     // 리스트 가져오는 거 실행
     this.tableData=this.products
     // tableData에 가져온 products 넣어라
-    this.userToken = localStorage.getItem("loginUserToken")
+    this.userToken = localStorage.getItem("userToken")
     //로컬 스토리지의 유저 토큰 가져와라
   },
   computed:{
