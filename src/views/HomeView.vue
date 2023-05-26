@@ -1,21 +1,16 @@
 <template>
   <v-container>
     <div>
-      <nav>
-        <navigation-menu-page/>
-      </nav>
+      <h2>홈 뷰에 뭘 넣을까요 ?</h2>
     </div>
   </v-container>
 </template>
 
 <script>
-  import NavigationMenuPage from '@/views/navigation/NavigationMenuPage.vue'
-
   export default {
     name: 'Home',
 
     components: {
-      NavigationMenuPage
     },
   }
 </script>
