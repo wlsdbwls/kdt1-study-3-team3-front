@@ -11,10 +11,14 @@ Vue.use(VueRouter);
 
 const productRoutes = [
   {
-    path: "/productReadPage",
-    name: "productReadPage",
-    component: ProductReadPage,
-    props: true,
+    path: '/productReadPage/:id',
+    name: 'ProductReadPage',
+    components: {
+      default: ProductReadPage
+    },
+    props: {
+      default: true
+    },
   },
   {
     path: "/productListPage",
