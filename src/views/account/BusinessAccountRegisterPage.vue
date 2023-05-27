@@ -1,6 +1,5 @@
 <template lang="">
     <div>
-        <h2>사업자(판매자) 회원 가입하기</h2>
         <business-account-register-form @submit="onSubmit"/>
     </div>
 </template>

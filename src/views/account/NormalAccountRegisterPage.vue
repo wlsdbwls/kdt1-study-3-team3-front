@@ -1,6 +1,5 @@
 <template lang="">
     <div>
-        <h2>일반(구매자) 회원 가입하기</h2>
         <normal-account-register-form @submit="onSubmit"/>
     </div>
 </template>
