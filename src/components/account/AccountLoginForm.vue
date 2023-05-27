@@ -1,23 +1,38 @@
 <template lang="">
-    <div>
-        <form @submit.prevent="onSubmit">
-            <table>
-                <tr>
-                    <td>이메일</td>
-                    <td>
-                        <input type="text" v-model="email">
-                    </td>
-                </tr>
-                <tr>
-                    <td>비밀번호</td>
-                    <td>
-                        <input type="text" v-model="password">
-                    </td>
-                </tr>
-            </table>
-            <v-btn type="submit">로그인</v-btn>
-        </form>
-    </div>
+    <v-container class="container">
+    <v-card id="loginVcard" justify-center>
+        <div style="display: flex; justify-content: center; padding-bottom: 20px; padding-top: 20px">
+            <v-icon size="80" color="primary">mdi-login-variant</v-icon>
+        </div>
+        <div>
+            <v-card-text>
+                <form @submit.prevent="onSubmit" id="loginInfo">
+                <table id="loginTable">
+                    <tr>
+                        <td>
+                            <v-icon right>mdi-account-circle-outline</v-icon>
+                            <input type="text" class="inputValue" v-model="email" placeholder="Email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <v-icon right>mdi-lock-outline</v-icon>
+                            <input type="text" class="inputValue" v-model="password" placeholder="Password">
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    <a href="/signup" class="signup" alt="회원가입" style="float:right;">회원가입</a>
+                </div>
+                </form>
+
+                <div id="loginSubmitBtn">
+                    <v-btn type="submit" width="360" height="50" color="primary" @click="onSubmit">로그인</v-btn> 
+                </div>
+            </v-card-text>
+        </div>
+    </v-card>
+    </v-container>
 </template>
 
 <script>
@@ -37,6 +52,50 @@ export default {
 }
 </script>
 
-<style lang="">
-    
+<style scoped>
+    .signup {
+        text-decoration-line: none;
+        font-size: 11px;
+        color:gray;
+        padding-top: 4px;
+        padding-right: 42px;
+        padding-bottom: 18px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #loginVcard {
+        width: 460px;
+        height: 420px;
+        margin-top: 60px;
+        padding-top: 20px;
+    }
+    #loginSubmitBtn {
+        padding-left: 30px;
+    }
+    #loginInfo {
+        height: 110px;
+    }
+    #loginTable {
+        width: 390px;
+        height: 80px;
+        padding-left: 30px;
+    }
+    input.inputValue {
+        outline: none;
+        font-size: 14px;
+        color: gray;
+        width: 320px;
+        font-weight: 300;
+        padding: 8px 10px;
+        /* border-bottom: 1px solid;
+        border-color: lightgray; */
+    }
+    #loginTable td {
+        border-bottom: 1px solid;
+        border-color: lightgray;
+        padding-bottom: 4px;
+    }
 </style>
