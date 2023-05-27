@@ -35,9 +35,6 @@ export default {
       "requestProductToSpring",
       "requestDeletProductToSpring",
     ]),
-    created() {
-      this.requestProductToSpring(this.id);
-    },
     productListPage() {
       router.push("/productListPage");
     },
@@ -56,6 +53,9 @@ export default {
         await this.productListPage();
       }
     },
+  },
+  created() {
+      this.requestProductToSpring(this.id);
   },
 };
 </script>
