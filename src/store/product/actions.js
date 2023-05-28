@@ -30,7 +30,7 @@ export default {
         if (res.data) {
           return res.data
       } else {
-        alert("사업자 회원으로 로그인하세요");
+        alert("상품 등록 불가!");
       }
     });
   },
