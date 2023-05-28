@@ -8,7 +8,9 @@
     <td @click="handleCellClick(item)">{{ item.productName }}</td>
   </template>
   </v-data-table>
-  <v-btn @onClick="accountCheck">상품 등록</v-btn>
+  <div>
+  <v-btn @click="accountCheck">상품 등록</v-btn>
+  </div>
   </div>
 </template>
 
@@ -27,21 +29,18 @@ export default {
           this.$router.push({name: 'ProductReadPage', params: {id:item.productId}})
         },
     accountCheck(){
-            const {userToken}= this
-            axiosInst.post('/product/account-check',{userToken})
-            // 유저 토큰을 스프링으로 보낸다.
-            .then((res)=>{
-                // 받아온 데이터가 참이라면 상품 등록 페이지로 연결됨
-                if(res.data===true){
-                    this.$router.push({ name: 'ProductRegisterPage' })
-                }
-            })
-            .catch((res)=>{
-                alert("당신은 사업자가 아닙니다!")
-            })
-        },
-        
-        
+      const{ userToken } =this
+      axiosInst.post('/account/businessCheck',{ userToken })
+      .then((res)=>{
+        console.log("돌아오는 값: "+res.data)
+        if(res.data===true){
+          this.$router.push({ name: 'ProductRegisterPage'})
+        }
+      })
+      .catch((res)=>{
+        alert("당신은 사업자가 아닙니다.")
+      })
+    },  
   },
   mounted() {
     this.requestProductListToSpring()
