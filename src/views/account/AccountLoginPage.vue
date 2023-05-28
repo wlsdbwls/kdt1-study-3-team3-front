@@ -1,6 +1,5 @@
 <template lang="">
     <div>
-        <h2>로그인 페이지</h2>
         <account-login-form @submit="onSubmit"/>
     </div>
 </template>

@@ -1,6 +1,13 @@
 <template lang="">
     <nav>
-        <v-app-bar color="primary" app dark>
+        <v-app-bar color="#f18893" app dark>
+            <v-btn text @click="goToHome">
+                <v-icon>TEAM3</v-icon>
+            </v-btn>
+            <v-btn text @click="goToShop">
+                <span>SHOP</span>
+            </v-btn>
+            <v-spacer></v-spacer>
             <v-btn v-if="!isLogin" text @click="signUp">
                 <span>회원가입</span>
                 <v-icon right>mdi-account-plus-outline</v-icon>
@@ -12,6 +19,10 @@
             <v-btn v-if="isLogin" text @click="signOut">
                 <span>로그아웃</span>
                 <v-icon right>mdi-exit-to-app</v-icon>
+            </v-btn>
+            <v-btn v-if="isLogin" text @click="myPage">
+                <span>마이페이지</span>
+                <v-icon right>mdi-cards-heart-outline</v-icon>
             </v-btn>
         </v-app-bar>
     </nav>
@@ -39,6 +50,15 @@ export default {
             localStorage.removeItem("userToken")
             this.isLogin = false
         },
+        goToShop () {
+            router.push('/productListPage')
+        },
+        goToHome () {
+            router.push('/')
+        },
+        myPage () {
+            router.push('/myPage')
+        }
     },
     mounted () {
         this.userToken = localStorage.getItem("userToken")
