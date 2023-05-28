@@ -1,14 +1,15 @@
 <template lang="">
     <v-container class="container">
     <v-card id="selectTypeVcard" justify-center>
-        <h3>ICECREAM SHOP</h3>
+        <h2 class="main-font">ICECREAM</h2>
+        <!-- <v-img :src="require('@/assets/images/main_1.jpg')" :width="200"></v-img> -->
         <div>
             <v-card-text>
                 <div id="selectTypeBtn">
-                    <v-btn type="submit" width="360" height="50" color="primary" @click="signUpNormal">일반 회원 가입</v-btn> 
+                    <v-btn block rounded="xl" type="submit" height="50" color="#f18893" @click="signUpNormal" dark>일반 회원 가입</v-btn> 
                 </div>
                 <div id="selectTypeBtn">
-                    <v-btn type="submit" width="360" height="50" color="primary" @click="signUpBusiness">사업자 회원 가입</v-btn> 
+                    <v-btn block rounded="xl" type="submit" height="50" color="#f18893" @click="signUpBusiness" dark>사업자 회원 가입</v-btn> 
                 </div>
             </v-card-text>
         </div>
@@ -46,12 +47,19 @@ export default {
     #selectTypeBtn {
         padding-top: 30px;
         padding-left: 30px;
+        width: 400px;
+
     }
-    #selectTypeVcard h3 {
+    #selectTypeVcard h2 {
         text-align: center;
         font-weight: 800;
-        font-size: 32px;
+        font-size: 48px;
+        color: #ffcfd4;
         padding-top: 20px;
         padding-bottom: 40px;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+    h2.main-font {
+        font-family: 'Cherry Bomb One', cursive;
     }
 </style>

@@ -28,7 +28,7 @@
                 </form>
 
                 <div id="signupSubmitBtn">
-                    <v-btn type="submit" width="360" height="50" color="primary" @click="onSubmit">가입하기</v-btn> 
+                    <v-btn type="submit" width="360" height="50" color="#f18893" @click="onSubmit" dark>가입하기</v-btn> 
                 </div>
             </v-card-text>
         </div>
