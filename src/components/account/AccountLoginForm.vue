@@ -2,7 +2,7 @@
     <v-container class="container">
     <v-card id="loginVcard" justify-center>
         <div style="display: flex; justify-content: center; padding-bottom: 20px; padding-top: 20px">
-            <v-icon size="80" color="primary">mdi-login-variant</v-icon>
+            <v-icon size="80" color="#f18893">mdi-login-variant</v-icon>
         </div>
         <div>
             <v-card-text>
@@ -10,13 +10,13 @@
                 <table id="loginTable">
                     <tr>
                         <td>
-                            <v-icon right>mdi-account-circle-outline</v-icon>
+                            <v-icon right color="#f18893">mdi-account-circle-outline</v-icon>
                             <input type="text" class="inputValue" v-model="email" placeholder="Email">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <v-icon right>mdi-lock-outline</v-icon>
+                            <v-icon right color="#f18893">mdi-lock-outline</v-icon>
                             <input type="text" class="inputValue" v-model="password" placeholder="Password">
                         </td>
                     </tr>
@@ -27,7 +27,7 @@
                 </form>
 
                 <div id="loginSubmitBtn">
-                    <v-btn type="submit" width="360" height="50" color="primary" @click="onSubmit">로그인</v-btn> 
+                    <v-btn type="submit" width="360" height="50" color="#f18893" @click="onSubmit" dark>로그인</v-btn> 
                 </div>
             </v-card-text>
         </div>
@@ -90,8 +90,6 @@ export default {
         width: 320px;
         font-weight: 300;
         padding: 8px 10px;
-        /* border-bottom: 1px solid;
-        border-color: lightgray; */
     }
     #loginTable td {
         border-bottom: 1px solid;
