@@ -1,6 +1,6 @@
 <template lang="">
     <nav>
-        <v-app-bar color="primary" app dark>
+        <v-app-bar color="#f18893" app dark>
             <v-btn text @click="goToHome">
                 <v-icon>TEAM3</v-icon>
             </v-btn>
