@@ -7,7 +7,6 @@ import axiosInst from "@/utility/axiosInst";
 
 export default {
   requestProductToSpring({ commit }, id) {
-    // state.product = id;
     return axiosInst.get(`/product/${id}`)
       .then((resRead) => {
         console.log("상품 잘 가져오는지 확인: " + JSON.stringify(resRead.data))
@@ -34,14 +33,25 @@ export default {
       }
     });
   },
-  requestDeletProductToSpring({}, id) {
+  requestDeleteProductToSpring({}, id) {
     return axiosInst
       .delete(`/product/${id}`)
       .then((resDelete) => {
         alert("상품이 삭제되었습니다.");
       })
       .catch(() => {
-        console.log("상품삭제 실패");
+        alert("상품삭제 실패");
+      });
+  },
+  requestModifyProductToSpring({}, payload) {
+    const { productName, productPrice, productInfo, id } = payload
+    return axiosInst
+      .put(`/product/${id}`, { productName, productPrice, productInfo, id })
+      .then((resModify) => {
+        alert("상품이 수정되었습니다.");
+      })
+      .catch(() => {
+        alert("상품수정 실패");
       });
   },
 };

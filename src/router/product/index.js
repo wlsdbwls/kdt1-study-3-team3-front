@@ -33,7 +33,12 @@ const productRoutes = [
   {
     path: "/productModifyPage",
     name: "ProductModifyPage",
-    component: ProductModifyPage,
+    components: {
+      default: ProductModifyPage
+    },
+    props: {
+      default: true
+    },
   },
   {
     path: "/productPurchaseCheckPage",
