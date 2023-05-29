@@ -1,33 +1,35 @@
 <template lang="">
   <div>
-    <h1>상품 상세페이지</h1>
-    <product-read-form v-if="product" :product="product" />
+    <h2 style="text-align: center">상품 상세 정보</h2>
+    <product-read-form v-if="product" :product="product"/>
+    <p v-else>로딩중 ...</p>
     <v-container fluid>
       <v-row justify="center">
         <v-col cols="auto">
-          <v-btn>구매</v-btn>
+          <v-btn  @click="productOrder">구매</v-btn>
         </v-col>
         <v-col cols="auto">
-        <v-btn @click="productDelete">삭제</v-btn>
+          <v-btn @click="productDelete">삭제</v-btn>
         </v-col>
         <v-col cols="auto">
-        <v-btn @click="productModifyPage">수정</v-btn>
+          <v-btn @click="productModifyPage">수정</v-btn>
         </v-col>
       </v-row>
-
       <v-row justify="center">
-        <v-col cols="auto">
+        <v-col cols="1">
           <v-btn @click="productListPage">목록으로</v-btn>
         </v-col>
       </v-row>
     </v-container>
-    <h2>상품 상세 정보</h2>
+
+
+    <!-- <h2>상품 상세 정보</h2>
     <product-read-form v-if="product" :product="product"/>
     <p v-else>로딩중 .......</p>
     <v-btn @click="productOrder">구매</v-btn>
     <v-btn @click="productDelete">삭제</v-btn>
     <v-btn @click="productModifyPage">수정</v-btn>
-    <v-btn @click="productListPage">목록으로</v-btn>
+    <v-btn @click="productListPage">목록으로</v-btn> -->
   </div>
 </template>
 <script>
@@ -42,7 +44,7 @@ export default {
   name: "ProductReadPage",
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
@@ -61,7 +63,7 @@ export default {
       router.push("/productListPage");
     },
     productModifyPage() {
-      router.push("/productModifyPage");
+      this.$router.push({name: 'ProductModifyPage', params: {id:this.id}})
     },
     async productDelete() {
       if (!confirm("정말 삭제하시겠습니까?")) {
