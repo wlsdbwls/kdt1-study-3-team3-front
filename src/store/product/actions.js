@@ -7,7 +7,6 @@ import axiosInst from "@/utility/axiosInst";
 
 export default {
   requestProductToSpring({ commit }, id) {
-    // state.product = id;
     return axiosInst.get(`/product/${id}`)
       .then((res) => {
         console.log("상품 잘 가져오는지 확인: " + JSON.stringify(res.data))

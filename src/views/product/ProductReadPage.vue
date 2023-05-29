@@ -1,12 +1,26 @@
 <template lang="">
   <div>
     <h1>상품 상세페이지</h1>
-    <h2>상품 상세 정보</h2>
     <product-read-form v-if="product" :product="product" />
-    <v-btn>구매</v-btn>
-    <v-btn @click="productDelete">삭제</v-btn>
-    <v-btn @click="productModifyPage">수정</v-btn>
-    <v-btn @click="productListPage">목록으로</v-btn>
+    <v-container fluid>
+      <v-row justify="center">
+        <v-col cols="auto">
+          <v-btn>구매</v-btn>
+        </v-col>
+        <v-col cols="auto">
+        <v-btn @click="productDelete">삭제</v-btn>
+        </v-col>
+        <v-col cols="auto">
+        <v-btn @click="productModifyPage">수정</v-btn>
+        </v-col>
+      </v-row>
+
+      <v-row justify="center">
+        <v-col cols="auto">
+          <v-btn @click="productListPage">목록으로</v-btn>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 <script>
