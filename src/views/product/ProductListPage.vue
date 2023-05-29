@@ -12,8 +12,9 @@
     </template>
     </v-data-table>
     <div>
-      <input type="text" v-model="searchTerm" placeholder="상품명을 입력하세요" />
-      <v-btn :small=true raised @onClick="findProduct">검색</v-btn>
+      <input type="text" :value="searchTerm"
+      @change="searchTerm = $event.target.value" placeholder="상품명을 입력하세요"/>
+      <v-btn :small=true color="#f18893" raised @click="findProduct">검색</v-btn>
     </div>
     <div>
       <v-btn @click="accountCheck">상품 등록</v-btn>
@@ -74,6 +75,6 @@ export default {
         {text:'상품 설명', value:'productInfo'}], // 테이블 헤더 배열
       searchTerm:'',
     };
-  },
+  }, 
 }
 </script>
