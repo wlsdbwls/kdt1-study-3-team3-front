@@ -54,7 +54,13 @@ export default {
     },
     productOrder () {
       axiosInst.post("/orders/register", {productId: this.id, userToken: localStorage.getItem("userToken")})
-      router.push("/productPurchaseCheckPage");
+      .then((res) => {
+        if(res === true) {
+          router.push("/productPurchaseCheckPage");
+        } else {
+          alert("사업자는 구매가 불가합니다!")
+        }
+      })
     }
   },
   created() {
