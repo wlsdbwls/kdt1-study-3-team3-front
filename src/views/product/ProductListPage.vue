@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-data-table :items="products" :headers="tableHeaders">
+    <v-data-table :items="findProduct" :headers="tableHeaders">
     <!-- eslint-disable-next-line -->
     <template v-slot:item.productImagePath = "{ item }">
       <v-img :src="require(`@/assets/uploadImgs/${item.productImagePath}`)" 
@@ -11,6 +11,10 @@
       <td @click="handleCellClick(item)">{{ item.productName }}</td>
     </template>
     </v-data-table>
+    <div>
+      <input type="text" v-model="searchTerm" placeholder="상품명을 입력하세요" />
+      <v-btn :small=true raised @onClick="findProduct">검색</v-btn>
+    </div>
     <div>
       <v-btn @click="accountCheck">상품 등록</v-btn>
     </div>
@@ -53,7 +57,12 @@ export default {
     //로컬 스토리지의 유저 토큰 가져와라
   },
   computed:{
-    ...mapState(productModule, ['products'])
+    ...mapState(productModule, ['products']),
+    findProduct() {
+      return this.products.filter((product) =>
+        product.productName.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
   },
   data() {
     return {
@@ -63,6 +72,7 @@ export default {
         {text:'상품명', value:'productName'},
         {text:'가격', value:'productPrice'},
         {text:'상품 설명', value:'productInfo'}], // 테이블 헤더 배열
+      searchTerm:'',
     };
   },
 }
