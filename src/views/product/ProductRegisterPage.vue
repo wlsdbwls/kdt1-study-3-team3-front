@@ -1,6 +1,6 @@
 <template lang="">
     <div><br/>
-        <h2 style="text-align: center">상품 등록 페이지</h2><br/>
+        <!-- <h2 style="text-align: center">상품 등록 페이지</h2><br/> -->
         <product-register-form align="center" @submit="onSubmit"/>
     </div>
 </template>

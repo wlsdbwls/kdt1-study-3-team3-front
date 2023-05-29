@@ -39,4 +39,12 @@ export default {
                     }
                 })
     },
+    requestAccountEmailToSpring ({}, payload) {
+        return axiosInst.post('/account/getAccountInfo', payload)
+            .then((resGetInfo) => {
+                if(resGetInfo != null) {
+                    return resGetInfo.data
+                }
+            })
+    }
 }
