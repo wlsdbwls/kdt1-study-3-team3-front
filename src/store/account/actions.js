@@ -1,3 +1,4 @@
+import router from '@/router'
 import axiosInst from '@/utility/axiosInst'
 
 export default {
@@ -7,6 +8,7 @@ export default {
             .then((resNormalRegister) => {
                 if(resNormalRegister.data == true) {
                     alert('일반(구매자) 회원 가입 성공')
+                    router.push('/account-login')
                 } else {
                     alert('구매자 회원가입 실패!')
                 }
@@ -18,6 +20,7 @@ export default {
                 .then((resBusinessRegister) => {
                     if(resBusinessRegister.data == true) {
                         alert('사업자(판매자) 회원 가입 성공')
+                        router.push('/account-login')
                     } else {
                         alert('판매자 회원가입 실패!')
                     }
@@ -30,6 +33,7 @@ export default {
                     if(resLogin.data != '') {
                         alert('로그인 성공!')
                         localStorage.setItem("userToken", resLogin.data)
+                        router.push('/productListPage')
                     } else {
                         alert('이메일과 비밀번호를 다시 확인해주세요!')
                     }

@@ -1,14 +1,23 @@
 <template>
-   <div>
-    <v-data-table :items="tableData" :headers="tableHeaders" @click="productRead" >
-    <template v-slot:item.productImg="{item}">
-    <v-img :src="item.productImg" :width="50" :heigth="50"></v-img>
-  </template>
-  <template v-slot:item.productName="{ item }">
-    <td @click="handleCellClick(item)">{{ item.productName }}</td>
-  </template>
-  </v-data-table>
-  <v-btn @onClick="accountCheck">상품 등록</v-btn>
+  <div>
+    <v-data-table :items="findProduct" :headers="tableHeaders">
+    <!-- eslint-disable-next-line -->
+    <template v-slot:item.productImagePath = "{ item }">
+      <v-img :src="require(`@/assets/uploadImgs/${item.productImagePath}`)" 
+        :width="50" :heigth="50" @click="productRead(item)"></v-img>
+    </template>
+    <!-- eslint-disable-next-line -->
+    <template v-slot:item.productName="{ item }">
+      <td @click="handleCellClick(item)">{{ item.productName }}</td>
+    </template>
+    </v-data-table>
+    <div>
+      <input type="text" v-model="searchTerm" placeholder="상품명을 입력하세요" />
+      <v-btn :small=true raised @onClick="findProduct">검색</v-btn>
+    </div>
+    <div>
+      <v-btn @click="accountCheck">상품 등록</v-btn>
+    </div>
   </div>
 </template>
 
@@ -17,52 +26,53 @@ import axiosInst from '@/utility/axiosInst';
 import { mapActions, mapState } from 'vuex';
 
 const productModule='productModule'
+
 export default {
   methods:{
-    ...mapActions(productModule,['requestProductListToSpring']),
+    ...mapActions(productModule, ['requestProductListToSpring']),
     productRead(item){
-          this.$router.push({name: 'ProductReadPage', params: {id:item.productId}})
-        },
+          this.$router.push({name: 'ProductReadPage', params: {id:item.id}})
+    },
     handleCellClick(item) { 
-          this.$router.push({name: 'ProductReadPage', params: {id:item.productId}})
-        },
+          this.$router.push({name: 'ProductReadPage', params: {id:item.id}})
+    },
     accountCheck(){
-            const {userToken}= this
-            axiosInst.post('/product/account-check',{userToken})
-            // 유저 토큰을 스프링으로 보낸다.
-            .then((res)=>{
-                // 받아온 데이터가 참이라면 상품 등록 페이지로 연결됨
-                if(res.data===true){
-                    this.$router.push({ name: 'ProductRegisterPage' })
-                }
-            })
-            .catch((res)=>{
-                alert("당신은 사업자가 아닙니다!")
-            })
-        },
-        
-        
+      const{ userToken } = this
+
+      axiosInst.post('/account/businessCheck', { userToken })
+      .then((res)=>{
+        console.log("돌아오는 값: " + res.data)
+        if(res.data === true){
+          this.$router.push({ name: 'ProductRegisterPage'})
+        } else {
+            alert("당신은 사업자가 아닙니다!") 
+          }
+      })
+    },
   },
   mounted() {
     this.requestProductListToSpring()
     // 리스트 가져오는 거 실행
-    this.tableData=this.products
-    // tableData에 가져온 products 넣어라
     this.userToken = localStorage.getItem("userToken")
     //로컬 스토리지의 유저 토큰 가져와라
   },
   computed:{
-    ...mapState(productModule,['products']),
+    ...mapState(productModule, ['products']),
+    findProduct() {
+      return this.products.filter((product) =>
+        product.productName.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
   },
   data() {
     return {
       userToken:'',
-      tableData: [], 
       tableHeaders: [
-        {text:'상품 이미지',value:'productImg'},
-        {text:'상품명',value:'productName'},
-        {text:'가격',value:'productPrice'},
-        {text:'상품 설명',value:'productInfo'}], // 테이블 헤더 배열
+        {text:'상품 이미지', value:'productImagePath'},
+        {text:'상품명', value:'productName'},
+        {text:'가격', value:'productPrice'},
+        {text:'상품 설명', value:'productInfo'}], // 테이블 헤더 배열
+      searchTerm:'',
     };
   },
 }

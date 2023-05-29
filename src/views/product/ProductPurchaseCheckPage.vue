@@ -16,7 +16,9 @@
             </tr>
             <tr v-else v-for="order in orderList" :key="order.productId">
                 <td align="center">
-                    {{ order.productImg }}
+                  <v-img :src="require(`@/assets/uploadImgs/${order.imageResourcePath}`)"
+                   :width="100"  @click="productRead(order)">
+                  </v-img>
                 </td>
                 <td align="center">
                     {{ order.productName }}
