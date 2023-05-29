@@ -15,18 +15,26 @@
         </td>
       </tr>
       <tr>
-        <td>상품 이미지</td>
-        <td>
-          <input type="text" :value="product.productImg" readonly />
-        </td>
-      </tr>
-      <tr>
         <td>상품 상세 정보</td>
         <td>
           <input type="text" :value="product.productInfo" readonly />
         </td>
       </tr>
+      <tr>
+        <td>상품 이미지</td>
+      </tr>
     </table>
+    <v-carousel>
+            <v-carousel-item v-for="(imagePath, idx) in product.productImagesPathList" :key="idx">
+              <v-img :src="require(`@/assets/uploadImgs/${imagePath}`)" aspect-ratio="1" class="grey lighten-2">
+                <template v-slot:placeholder>
+                  <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular indeterminate color="grey lighten-5"/>
+                  </v-row>
+                </template>
+              </v-img>
+            </v-carousel-item>
+          </v-carousel>
   </div>
 </template>
 <script>
