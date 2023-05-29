@@ -16,18 +16,9 @@
             </tr>
             <tr v-else v-for="order in orderList" :key="order.productId">
                 <td align="center">
-                  <v-row> 
-                    <v-col v-for="(imagePath, idx) in order.productImagesPathList" :key="idx" cols="4">
-                      <v-img :src="require(`@/assets/uploadImgs/${imagePath}`)" aspect-ratio="1" class="grey lighten-2" >
-                        <p></p>
-                        <template v-slot:placeholder>
-                          <v-col class="fill-height ma-0" align="center" justify="center">
-                            <v-progress-circular indeterminate color="grey lighten-5"/>
-                          </v-col>
-                        </template>
-                      </v-img>
-                    </v-col>
-                  </v-row>
+                  <v-img :src="require(`@/assets/uploadImgs/${order.imageResourcePath}`)"
+                   :width="100"  @click="productRead(order)">
+                  </v-img>
                 </td>
                 <td align="center">
                     {{ order.productName }}
