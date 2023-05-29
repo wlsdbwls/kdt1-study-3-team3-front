@@ -5,6 +5,7 @@ import AccountRegisterPage from '@/views/account/AccountRegisterPage.vue'
 import NormalAccountRegisterPage from '@/views/account/NormalAccountRegisterPage.vue'
 import BusinessAccountRegisterPage from '@/views/account/BusinessAccountRegisterPage.vue'
 import AccountLoginPage from '@/views/account/AccountLoginPage.vue'
+import AccountMyPage from '@/views/account/AccountMyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,11 @@ const accountRoutes = [
     path: '/account-login',
     name: 'AccountLoginPage',
     component: AccountLoginPage
+  },
+  {
+    path: '/myPage',
+    name: 'AccountMyPage',
+    component: AccountMyPage
   },
 ]
 
