@@ -9,21 +9,22 @@
         <tr>
           <td style="font-weight: bold">상품명</td>
           <td>
-            <v-text-field type="text" class="inputValue" v-model="productName" placeholder="상품명을 입력하세요"/>
+            <v-text-field color="#f18893" type="text" class="inputValue" 
+            v-model="productName" placeholder="상품명을 입력하세요"/>
           </td>
         </tr> 
         <tr>
           <td style="font-weight: bold">상품 가격</td>
           <td>
             <v-text-field type="number" class="inputValue" v-model="productPrice" step="10"
-            placeholder="가격을 입력하세요"/>
+            color="#f18893" placeholder="가격을 입력하세요"/>
           </td>
         </tr>
         <tr>
           <td style="font-weight: bold">상품 정보</td>
           <td>
             <v-textarea class="inputValue" rows="4" v-model="productInfo" 
-            placeholder="상품의 세부 정보를 입력하세요"/>
+            color="#f18893" placeholder="상품의 세부 정보를 입력하세요"/>
           </td>
         </tr>
         <p></p>
