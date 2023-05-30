@@ -41,10 +41,15 @@ export default {
     methods: {
         signUp () {
             router.push('/signup')
+            .catch(() => {})
         },
         signIn () {
             router.push('/account-login')
-            this.isLogin = true
+            .catch(() => {})
+            this.userToken = localStorage.getItem("userToken")
+            if (this.userToken != null) {
+                this.isLogin = true
+            }
         },
         signOut () {
             localStorage.removeItem("userToken")
@@ -52,12 +57,15 @@ export default {
         },
         goToShop () {
             router.push('/productListPage')
+            .catch(() => {})
         },
         goToHome () {
             router.push('/')
+            .catch(() => {})
         },
         myPage () {
             router.push('/myPage')
+            .catch(() => {})
         }
     },
     mounted () {
