@@ -41,9 +41,11 @@ export default {
     methods: {
         signUp () {
             router.push('/signup')
+            .catch(() => {})
         },
         signIn () {
             router.push('/account-login')
+            .catch(() => {})
             this.isLogin = true
         },
         signOut () {
@@ -52,12 +54,15 @@ export default {
         },
         goToShop () {
             router.push('/productListPage')
+            .catch(() => {})
         },
         goToHome () {
             router.push('/')
+            .catch(() => {})
         },
         myPage () {
             router.push('/myPage')
+            .catch(() => {})
         }
     },
     mounted () {
