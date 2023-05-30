@@ -7,9 +7,10 @@ import axiosInst from "@/utility/axiosInst";
 
 export default {
   requestProductToSpring({ commit }, id) {
-    return axiosInst.get(`/product/${id}`)
+    return axiosInst
+      .get(`/product/${id}`)
       .then((resRead) => {
-        console.log("상품 잘 가져오는지 확인: " + JSON.stringify(resRead.data))
+        console.log("상품 잘 가져오는지 확인: " + JSON.stringify(resRead.data));
         commit(REQUEST_PRODUCT_TO_SPRING, resRead.data);
       })
       .catch(() => {
@@ -24,10 +25,9 @@ export default {
     });
   },
   requestProductRegisterToSpring({}, payload) {
-    return axiosInst.post("/product/register", payload)
-      .then((resRegister) => {
-        if (resRegister.data) {
-          return resRegister.data
+    return axiosInst.post("/product/register", payload).then((resRegister) => {
+      if (resRegister.data) {
+        return resRegister.data;
       } else {
         alert("상품 등록 불가!");
       }
@@ -44,7 +44,7 @@ export default {
       });
   },
   requestModifyProductToSpring({}, payload) {
-    const { productName, productPrice, productInfo, id } = payload
+    const { productName, productPrice, productInfo, id } = payload;
     return axiosInst
       .put(`/product/${id}`, { productName, productPrice, productInfo, id })
       .then((resModify) => {
