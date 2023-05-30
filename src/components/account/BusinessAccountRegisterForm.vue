@@ -63,7 +63,7 @@ export default {
             this.checkBusinessNumber()
             this.checkPassword()
             
-            if(this.checkEmailValid == true && this.checkBusinessNumberValid == true) {
+            if(this.checkEmailValid == true && this.checkBusinessNumberValid == true && this.checkPasswordValid == true) {
                 const { email, password, roleType, businessNumber } = this
                 this.$emit('submit', { email, password, roleType, businessNumber })
             } else {
