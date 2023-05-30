@@ -1,35 +1,25 @@
 <template lang="">
   <div>
-    <h2 style="text-align: center">상품 상세 정보</h2>
-    <product-read-form v-if="product" :product="product"/>
+    <product-read-form v-if="product" :product="product" />
     <p v-else>로딩중 ...</p>
     <v-container fluid>
       <v-row justify="center">
         <v-col cols="auto">
-          <v-btn  @click="productOrder">구매</v-btn>
+          <v-btn @click="productOrder" color="#f18893">구매</v-btn>
         </v-col>
         <v-col cols="auto">
-          <v-btn @click="productDelete">삭제</v-btn>
+          <v-btn @click="productDelete" color="#f18893">삭제</v-btn>
         </v-col>
         <v-col cols="auto">
-          <v-btn @click="productModifyPage">수정</v-btn>
+          <v-btn @click="productModifyPage" color="#f18893">수정</v-btn>
         </v-col>
       </v-row>
       <v-row justify="center">
         <v-col cols="1">
-          <v-btn @click="productListPage">목록으로</v-btn>
+          <v-btn @click="productListPage" color="#f18893">목록으로</v-btn>
         </v-col>
       </v-row>
     </v-container>
-
-
-    <!-- <h2>상품 상세 정보</h2>
-    <product-read-form v-if="product" :product="product"/>
-    <p v-else>로딩중 .......</p>
-    <v-btn @click="productOrder">구매</v-btn>
-    <v-btn @click="productDelete">삭제</v-btn>
-    <v-btn @click="productModifyPage">수정</v-btn>
-    <v-btn @click="productListPage">목록으로</v-btn> -->
   </div>
 </template>
 <script>
@@ -63,7 +53,7 @@ export default {
       router.push("/productListPage");
     },
     productModifyPage() {
-      this.$router.push({name: 'ProductModifyPage', params: {id:this.id}})
+      this.$router.push({ name: "ProductModifyPage", params: { id: this.id } });
     },
     async productDelete() {
       if (!confirm("정말 삭제하시겠습니까?")) {
@@ -74,22 +64,25 @@ export default {
         await this.productListPage();
       }
     },
-    productOrder () {
-      axiosInst.post("/orders/register", {productId: this.id, userToken: localStorage.getItem("userToken")})
-      .then((res) => {
-        if(res.data === true) {
-          router.push("/productPurchaseCheckPage");
-        } else {
-          alert("사업자는 구매가 불가합니다!")
-        }
-      })
-    }
+    productOrder() {
+      axiosInst
+        .post("/orders/register", {
+          productId: this.id,
+          userToken: localStorage.getItem("userToken"),
+        })
+        .then((res) => {
+          if (res.data === true) {
+            router.push("/productPurchaseCheckPage");
+          } else {
+            alert("사업자는 구매가 불가합니다!");
+          }
+        });
+    },
   },
   created() {
-      this.requestProductToSpring(this.id);
+    this.requestProductToSpring(this.id);
   },
 };
 </script>
 
-<style lang="">
-</style>
+<style lang=""></style>
