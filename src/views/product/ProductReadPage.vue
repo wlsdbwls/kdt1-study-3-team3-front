@@ -44,7 +44,7 @@ export default {
   name: "ProductReadPage",
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
