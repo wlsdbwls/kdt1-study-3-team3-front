@@ -46,7 +46,10 @@ export default {
         signIn () {
             router.push('/account-login')
             .catch(() => {})
-            this.isLogin = true
+            this.userToken = localStorage.getItem("userToken")
+            if (this.userToken != null) {
+                this.isLogin = true
+            }
         },
         signOut () {
             localStorage.removeItem("userToken")
