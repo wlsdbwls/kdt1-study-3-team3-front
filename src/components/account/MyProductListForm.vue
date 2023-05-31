@@ -34,7 +34,8 @@ export default {
 
     async mounted() {
         this.userToken = localStorage.getItem("userToken");
-        await this.requestBusinessProductListToSpring(this.userToken);
+        await this.requestBusinessProductListToSpring({ userToken: this.userToken });
+        console.log(this.requestBusinessProductListToSpring({ userToken: this.userToken }))
     },
     computed: {
         ...mapState(productModule, ['products']),
