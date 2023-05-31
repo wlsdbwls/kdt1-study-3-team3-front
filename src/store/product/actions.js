@@ -1,6 +1,7 @@
 import {
   REQUEST_PRODUCT_TO_SPRING,
   REQUEST_PRODUCT_LIST_TO_SPRING,
+  REQUEST_BUSINESS_PRODUCT_LIST_TO_SPRING,
 } from "./mutation-types";
 
 import axiosInst from "@/utility/axiosInst";
@@ -54,4 +55,14 @@ export default {
         alert("상품수정 실패");
       });
   },
+  requestBusinessProductListToSpring({ commit }, payload) {
+
+    return axiosInst.post("/product/business-product-list", { payload })
+      .then((res) => {
+        commit(REQUEST_BUSINESS_PRODUCT_LIST_TO_SPRING, res.data);
+      })
+      .catch(() => {
+        alert("안 보여줌")
+      })
+  }
 };
