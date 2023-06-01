@@ -13,7 +13,7 @@
                 </li>
                 <li v-if="whatIsYourType === 'BUSINESS'" @click="registeredProduct">
                     <a>상품관리</a>
-                    <div v-if="myProductListForm" class="productListFormContainer">
+                    <div v-if="myProductList" class="productListFormContainer">
                     <my-product-list-form />
                 </div>
                 </li>
@@ -24,7 +24,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import MyProductListForm from '@/components/account/MyProductListForm.vue';
+import myProductListForm from '@/components/account/MyProductListForm.vue';
 
 const accountModule = 'accountModule'
 
@@ -33,16 +33,16 @@ export default {
         return {
             userToken: '',
             response: { email: '', whatIsYourType: false },
-            myProductListForm: false
+            myProductList: false
         }
     },
     components: {
-        MyProductListForm,
+        myProductListForm,
     },
     methods: {
         ...mapActions(accountModule, ['requestAccountEmailToSpring']),
         registeredProduct() {
-            this.myProductListForm = true
+            this.myProductList = true
         }
     },
     async mounted() {
