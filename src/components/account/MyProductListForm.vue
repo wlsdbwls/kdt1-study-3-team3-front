@@ -1,10 +1,10 @@
 <template>
     <div>
         <v-data-table :items="filteringData" :headers="tableHeaders">
-            <template v-slot:item.productImagePath="{ item }">
+            <!-- <template v-slot:item.productImagePath="{ item }">
                 <v-img :src="require(`@/assets/uploadImgs/${item.productImagePath}`)" :width="50" :heigth="50"
                     @click="productRead(item)"></v-img>
-            </template>
+            </template> -->
             <template v-slot:item.productName="{ item }">
                 {{ item.productName }}<td @click="handleCellClick(item)"></td>
             </template>
@@ -17,7 +17,8 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+
+import { mapActions } from 'vuex';
 
 const productModule = 'productModule'
 
@@ -43,7 +44,7 @@ export default {
         console.log(this.filteringData)
     },
     computed: {
-        ...mapState(productModule, ['filteredProduct']),
+        // ...mapState(productModule, ['filteredProduct']),
         // findProduct() {
         //     return this.filteredProduct.filter((filteredProduct) =>
         //         filteredProduct.productName.toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -54,7 +55,7 @@ export default {
         return {
             userToken: '',
             tableHeaders: [
-                { text: '상품 이미지', value: 'imageResourcePath' },
+                // { text: '상품 이미지', value: 'imageResourcePath' },
                 { text: '상품명', value: 'productName' },
                 { text: '가격', value: 'productPrice' },
                 { text: '상품 설명', value: 'productInfo' }], // 테이블 헤더 배열

@@ -8,10 +8,10 @@
             <ul>
                 <li>회원정보관리</li>
                 <li> | </li>
-                <li v-if="whatIsYourType === 'NORMAL'">
+                <li v-if="this.whatIsYourType === 'NORMAL'">
                     <a href="/ProductPurchaseCheckPage">주문내역</a>
                 </li>
-                <li v-if="whatIsYourType === 'BUSINESS'" @click="registeredProduct">
+                <li v-if="this.whatIsYourType === 'BUSINESS'" @click="registeredProduct">
                     <a>상품관리</a>
                     <div v-if="myProductList" class="productListFormContainer">
                     <my-product-list-form />
