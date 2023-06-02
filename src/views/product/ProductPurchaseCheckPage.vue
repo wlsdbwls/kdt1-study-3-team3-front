@@ -3,7 +3,7 @@
         <h3>구매내역 조회</h3>
         <table style="margin: 10px;">
             <tr>
-                <th align="center" width="40%">상품 이미지</th>
+                <!-- <th align="center" width="40%">상품 이미지</th> -->
                 <th align="center" width="20%">상품 이름</th>
                 <th align="center" width="30%">상품 가격</th>
                 <th align="center" width="60%">상품 정보</th>
@@ -15,11 +15,13 @@
                 </td>
             </tr>
             <tr v-else v-for="order in orderList" :key="order.productId">
-                <td align="center">
+                <!-- <td align="center">
                   <v-img :src="require(`@/assets/uploadImgs/${order.imageResourcePath}`)"
-                   :width="100"  @click="productRead(order)">
-                  </v-img>
-                </td>
+                   :width="100"  @click="productRead(order)"> -->
+                   <!-- <v-img :src="`@/home/ec2-user/deploy/kdt1-study-3-team3-front/image/${order.imageResourcePath}`"
+                   :width="100"  @click="productRead(order)"> -->
+                  <!-- </v-img>
+                </td> -->
                 <td align="center">
                     {{ order.productName }}
                 </td>

@@ -24,16 +24,18 @@ export default {
       commit(REQUEST_PRODUCT_LIST_TO_SPRING, resList.data);
     });
   },
-  requestProductRegisterToSpring({}, payload) {
-    return axiosInst.post("/product/register", payload).then((resRegister) => {
-      if (resRegister.data) {
-        return resRegister.data;
-      } else {
-        alert("상품 등록 불가!");
-      }
-    });
+  requestProductRegisterToSpring({ }, payload) {
+    return axiosInst.post("/product/register", payload)
+      .then((resRegister) => {
+        if (resRegister.data) {
+          return resRegister.data;
+        } else {
+          alert("상품 등록 불가!");
+        }
+      });
+
   },
-  requestDeleteProductToSpring({}, id) {
+  requestDeleteProductToSpring({ }, id) {
     return axiosInst
       .delete(`/product/${id}`)
       .then((resDelete) => {
@@ -43,7 +45,7 @@ export default {
         alert("상품삭제 실패");
       });
   },
-  requestModifyProductToSpring({}, payload) {
+  requestModifyProductToSpring({ }, payload) {
     const { productName, productPrice, productInfo, id } = payload;
     return axiosInst
       .put(`/product/${id}`, { productName, productPrice, productInfo, id })
@@ -54,4 +56,13 @@ export default {
         alert("상품수정 실패");
       });
   },
+  requestBusinessProductListToSpring({ }, payload) {
+    return axiosInst.post("/product/business-product-list", payload)
+      .then((resList) => {
+        return resList.data;
+      })
+      .catch(() => {
+        alert("안 보여줌")
+      })
+  }
 };
