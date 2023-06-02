@@ -2,10 +2,12 @@
   <div>
     <v-data-table :items="findProduct" :headers="tableHeaders">
     <!-- eslint-disable-next-line -->
-    <template v-slot:item.productImagePath = "{ item }">
+    <!-- <template v-slot:item.productImagePath = "{ item }">
       <v-img :src="require(`@/assets/uploadImgs/${item.productImagePath}`)" 
-        :width="50" :heigth="50" @click="productRead(item)"></v-img>
-    </template>
+        :width="50" :heigth="50" @click="productRead(item)"></v-img> -->
+        <!-- <img :src="`@/home/ec2-user/deploy/kdt1-study-3-team3-front/image/${item.productImagePath}`" alt="이미지없다"
+	        :width="50" :heigth="50" @click="productRead(item)"/> -->
+    <!-- </template> -->
     <!-- eslint-disable-next-line -->
     <template v-slot:item.productName="{ item }">
       <td @click="handleCellClick(item)">{{ item.productName }}</td>
