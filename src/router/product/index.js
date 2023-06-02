@@ -11,13 +11,13 @@ Vue.use(VueRouter);
 
 const productRoutes = [
   {
-    path: '/productReadPage/:id',
-    name: 'ProductReadPage',
+    path: "/productReadPage/:id",
+    name: "ProductReadPage",
     components: {
-      default: ProductReadPage
+      default: ProductReadPage,
     },
     props: {
-      default: true
+      default: true,
     },
   },
   {
@@ -34,10 +34,10 @@ const productRoutes = [
     path: "/productModifyPage",
     name: "ProductModifyPage",
     components: {
-      default: ProductModifyPage
+      default: ProductModifyPage,
     },
     props: {
-      default: true
+      default: true,
     },
   },
   {
