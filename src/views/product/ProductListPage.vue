@@ -71,7 +71,7 @@ export default {
     return {
       userToken:'',
       tableHeaders: [
-        {text:'상품 이미지', value:'productImagePath'},
+        // {text:'상품 이미지', value:'productImagePath'},
         {text:'상품명', value:'productName'},
         {text:'가격', value:'productPrice'},
         {text:'상품 설명', value:'productInfo'}], // 테이블 헤더 배열
