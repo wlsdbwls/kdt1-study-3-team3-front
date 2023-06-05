@@ -48,7 +48,7 @@ jobs:
       ## docker build & push to production
       - name: Docker build & push to prod
         run: |
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }}/kdt1-study-3-team3-front --password-stdin 
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin 
             docker buildx create --name arm64builder --use
             docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile -t ghcr.io/wlsdbwls/kdt1-study-3-team3-frontend:latest --push .
             docker logout
@@ -78,7 +78,7 @@ jobs:
             cd ci_cd/automation_front
             pwd
             
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }}/kdt1-study-3-team3-front --password-stdin
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
            
             docker pull ghcr.io/wlsdbwls/kdt1-study-3-team3-frontend:latest
 
